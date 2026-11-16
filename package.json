@@ -1,0 +1,18 @@
+{
+  "name": "asbuiltreport-project-presentation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Community presentation deck for the AsBuiltReport project",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run build:pdf && npm run build:pptx && npm run build:html && npm run build:notes",
+    "build:pdf": "marp --no-stdin asbuiltreport.md --pdf --pdf-notes -o dist/AsBuiltReport.pdf",
+    "build:pptx": "marp --no-stdin asbuiltreport.md --pptx -o dist/AsBuiltReport.pptx",
+    "build:html": "marp --no-stdin asbuiltreport.md -o dist/index.html && node -e \"require('fs').cpSync('assets','dist/assets',{recursive:true})\"",
+    "build:notes": "marp --no-stdin asbuiltreport.md --notes -o dist/speaker-script.txt",
+    "watch": "marp --no-stdin -w asbuiltreport.md -o dist/index.html"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.5.1"
+  }
+}

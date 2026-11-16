@@ -1,0 +1,227 @@
+/* @theme asbuiltreport */
+/* AsBuiltReport presentation theme for Marp.
+   Brand reference: https://github.com/AsBuiltReport/AsBuiltReport.Project.Website#branding */
+
+@font-face {
+  font-family: 'Archivo';
+  src: url('assets/fonts/archivo-latin-wdth-normal.woff2') format('woff2');
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cascadia Code';
+  src: url('assets/fonts/cascadia-code-latin-wght-normal.woff2') format('woff2');
+  font-weight: 200 700;
+  font-style: normal;
+}
+
+:root {
+  --abr-blue: #012456;
+  --abr-yellow: #FFD02B;
+  --abr-tint: #FFE9A3;
+  --abr-link: #1F5FD0;
+  --abr-param: #9DB7E8;
+  --abr-tracing: #E9EFF8;
+  --abr-ink: #0A1A33;
+  --abr-slate: #4A5B78;
+  --abr-rule: #C5D2E6;
+  --abr-term: #1E2530;
+
+  /* Theming hooks. Override these in your own theme, see THEMING.md */
+  --abr-font: 'Archivo', 'Segoe UI', Arial, sans-serif;
+  --abr-font-code: 'Cascadia Code', Consolas, monospace;
+  --abr-heading-weight: 800;
+  --abr-heading-stretch: 112%;
+  --abr-on-blue: #fff;                 /* text on the primary colour */
+  --abr-title-bg: var(--abr-blue);     /* title and section slides */
+  --abr-title-fg: #fff;
+  --abr-title-sub: #D6E2F5;
+  --abr-footer-logo: url('assets/logos/asbuiltreport-mark.svg');
+  --abr-event-logo: none;              /* your logo, top right of content slides */
+  --abr-event-logo-title: none;        /* your logo, top right of title slides */
+  --abr-event-logo-height: 48px;
+}
+
+section {
+  width: 1280px;
+  height: 720px;
+  box-sizing: border-box;
+  padding: 64px 72px 84px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: var(--abr-font);
+  font-size: 28px;
+  line-height: 1.45;
+  color: var(--abr-ink);
+  background-color: #fff;
+  background-image: var(--abr-footer-logo), var(--abr-event-logo);
+  background-repeat: no-repeat;
+  background-position: 72px 662px, right 72px top 40px;
+  background-size: 30px 30px, auto var(--abr-event-logo-height);
+}
+
+h1, h2, h3 {
+  font-weight: var(--abr-heading-weight);
+  font-stretch: var(--abr-heading-stretch);
+  color: var(--abr-blue);
+  margin: 0;
+  line-height: 1.1;
+}
+h1 { font-size: 52px; margin-bottom: 28px; }
+h2 { font-size: 34px; margin: 0 0 14px; }
+h3 { font-size: 26px; margin: 0 0 8px; }
+
+p { margin: 0 0 18px; }
+ul, ol { margin: 0 0 18px; padding-left: 1.1em; }
+li { margin-bottom: 10px; }
+li::marker { color: var(--abr-link); }
+strong { color: var(--abr-blue); font-weight: 700; }
+a { color: var(--abr-link); text-decoration: none; }
+mark { background: var(--abr-tint); color: var(--abr-ink); padding: 0 .2em; }
+
+code {
+  font-family: var(--abr-font-code);
+  font-size: .88em;
+  background: var(--abr-tracing);
+  color: var(--abr-blue);
+  padding: .08em .3em;
+  border-radius: 4px;
+}
+pre {
+  margin: 0 0 18px;
+  background: var(--abr-term);
+  border-radius: 8px;
+  padding: 20px 24px;
+  font-size: 22px;
+  line-height: 1.5;
+}
+pre code {
+  background: none;
+  color: #E6EAF0;
+  padding: 0;
+  font-size: 1em;
+}
+pre code .hljs-built_in, pre code .hljs-keyword, pre code .hljs-title { color: #F2CC60; }
+pre code .hljs-variable, pre code .hljs-attr, pre code .hljs-params { color: #A9B8D0; }
+pre code .hljs-string { color: #B9D8A8; }
+pre code .hljs-comment { color: #7F8CA3; font-style: normal; }
+pre code .hljs-number, pre code .hljs-literal { color: #F2CC60; }
+
+table { border-collapse: collapse; font-size: 22px; margin: 0 0 18px; }
+th { background: var(--abr-blue); color: var(--abr-on-blue); text-align: left; font-weight: 600; }
+th, td { border: 1px solid var(--abr-rule); padding: 8px 14px; }
+
+footer {
+  position: absolute;
+  left: 114px;
+  bottom: 30px;
+  font-size: 16px;
+  color: var(--abr-slate);
+}
+section::after {
+  position: absolute;
+  right: 72px;
+  bottom: 30px;
+  left: auto;
+  top: auto;
+  margin: 0;
+  padding: 0;
+  line-height: 1.45;
+  font-family: var(--abr-font-code);
+  font-size: 16px;
+  color: var(--abr-slate);
+}
+
+/* Layout helpers */
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.cols-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.cols-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.lede { font-size: 32px; color: var(--abr-slate); max-width: 26em; margin-top: 30px; }
+.small { font-size: 22px; color: var(--abr-slate); }
+
+.card {
+  border: 1px solid var(--abr-rule);
+  border-top: 6px solid var(--abr-yellow);
+  border-radius: 8px;
+  padding: 20px 22px;
+  font-size: 23px;
+  line-height: 1.4;
+}
+.card h3 { font-size: 24px; }
+.card p:last-child { margin-bottom: 0; }
+
+.stat { font-weight: var(--abr-heading-weight); font-stretch: var(--abr-heading-stretch); font-size: 64px; color: var(--abr-blue); line-height: 1; }
+.stat + p { font-size: 22px; color: var(--abr-slate); margin-top: 8px; }
+
+/* Timeline */
+.timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 12px; }
+.timeline > div { border-top: 6px solid var(--abr-blue); padding: 18px 20px 0 0; font-size: 22px; line-height: 1.4; position: relative; }
+.timeline > div::before { content: ''; position: absolute; top: -15px; left: 0; width: 24px; height: 24px; border-radius: 4px; background: var(--abr-yellow); }
+.timeline b { display: block; font-weight: var(--abr-heading-weight); font-stretch: var(--abr-heading-stretch); font-size: 30px; color: var(--abr-blue); margin-bottom: 6px; }
+
+/* Flow diagram */
+.flow { display: grid; grid-template-columns: 1fr 40px 1fr 40px 1fr 40px 1fr; align-items: stretch; margin: 8px 0 22px; }
+.flow .box { background: var(--abr-tracing); border-radius: 8px; padding: 18px 18px; font-size: 21px; line-height: 1.35; }
+.flow .box b { display: block; font-size: 23px; color: var(--abr-blue); margin-bottom: 6px; }
+.flow .box.key { background: var(--abr-blue); color: var(--abr-on-blue); }
+.flow .box.key b { color: var(--abr-yellow); }
+.flow .arrow { display: flex; align-items: center; justify-content: center; font-family: var(--abr-font-code); color: var(--abr-link); font-size: 30px; font-weight: 700; }
+
+/* Report illustration. Pinned to the AsBuiltReport palette, because it shows the
+   default report style and should not change with the presentation theme. */
+.page { --abr-blue: #012456; --abr-link: #1F5FD0; --abr-ink: #0A1A33; --abr-rule: #C5D2E6; --abr-tint: #FFE9A3; --abr-on-blue: #fff; }
+.report { display: grid; grid-template-columns: 300px 1fr; gap: 28px; }
+.page { background: #fff; border: 1px solid var(--abr-rule); box-shadow: 0 6px 18px rgba(1, 36, 86, .12); padding: 22px; font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; line-height: 1.4; color: var(--abr-ink); height: 400px; box-sizing: border-box; }
+.page .t1 { font-size: 24px; color: var(--abr-blue); margin: 70px 0 6px; line-height: 1.15; }
+.page .t2 { font-size: 16px; color: var(--abr-link); }
+.page h4 { font-size: 18px; color: var(--abr-blue); margin: 0 0 6px; font-family: inherit; font-weight: 600; }
+.page table { font-size: 14px; width: 100%; margin: 6px 0 12px; }
+.page th, .page td { padding: 4px 8px; }
+.page .warn { background: var(--abr-tint); }
+.page .crit { background: #F9D5D0; }
+.page .ok { background: #D9EEDC; }
+
+/* Title and section slides */
+section.lead, section.divider {
+  background-color: var(--abr-title-bg);
+  background-image: var(--abr-event-logo-title);
+  background-repeat: no-repeat;
+  background-position: right 96px top 64px;
+  background-size: auto calc(var(--abr-event-logo-height) * 1.4);
+  color: var(--abr-title-fg);
+  justify-content: center;
+  padding: 64px 96px 96px;
+  border-bottom: 22px solid var(--abr-yellow);
+}
+section.lead h1, section.divider h1 { color: var(--abr-title-fg); font-size: 76px; margin-bottom: 18px; }
+section.lead h2, section.divider h2 { color: var(--abr-title-sub); font-weight: 600; font-stretch: 100%; font-size: 36px; }
+section.lead p, section.divider p { color: var(--abr-param); font-size: 24px; }
+section.lead strong, section.divider strong { color: var(--abr-title-fg); }
+section.lead a, section.divider a { color: var(--abr-param); }
+section.lead code, section.divider code { background: none; color: var(--abr-param); padding: 0; }
+section.lead footer, section.divider footer, section.lead::after, section.divider::after { display: none; }
+section.lead .brand { display: flex; align-items: center; gap: 28px; margin-bottom: 26px; }
+section.lead .brand img { width: 120px; height: 120px; }
+section.lead .brand h1 { margin: 0; }
+section.lead .prompt, section.divider .prompt { font-family: var(--abr-font-code); color: var(--abr-yellow); }
+
+/* Presenter slot: slides a presenter is expected to replace */
+section.slot { background-color: #FFFBEA; }
+section.slot::before {
+  content: 'Your slide: replace this content';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  background: var(--abr-yellow);
+  color: var(--abr-blue);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 6px 72px;
+}
+
+/* QR codes: keep them dark on white with the quiet zone intact so phones can scan them */
+.qr-row { display: flex; gap: 28px; margin-top: 12px; }
+.qr { background: #fff; border-radius: 8px; padding: 10px 10px 12px; width: 230px; text-align: center; box-sizing: border-box; }
+.qr img { display: block; width: 210px; height: 210px; }
+.qr span { display: block; margin-top: 4px; font-size: 15px; font-weight: 700; color: var(--abr-blue); }

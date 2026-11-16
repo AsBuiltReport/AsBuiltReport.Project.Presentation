@@ -1,0 +1,6 @@
+node_modules/
+dist/
+
+# Personal or company themes and their assets, see THEMING.md
+themes/local-*.css
+assets/local/

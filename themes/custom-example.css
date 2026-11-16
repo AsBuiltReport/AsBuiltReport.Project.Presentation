@@ -1,0 +1,29 @@
+/* @theme custom-example */
+/* Example of a co-branded theme. Copy this file, rename the theme on the first
+   line, change the values and select it in asbuiltreport.md. See THEMING.md. */
+
+@import 'asbuiltreport';
+
+:root {
+  /* Colours */
+  --abr-blue: #1B4332;        /* primary: headings, table headers, title slides */
+  --abr-yellow: #F4A261;      /* accent: card edges, title slide edge, prompts */
+  --abr-tint: #FCE3CC;        /* highlight behind marked text */
+  --abr-link: #2D6A4F;        /* links, list markers */
+  --abr-param: #B7E4C7;       /* secondary text on title slides */
+  --abr-tracing: #EEF5F0;     /* panel and inline code background */
+  --abr-ink: #1B1B1B;         /* body text */
+  --abr-slate: #52605A;       /* captions and footer */
+  --abr-rule: #CFDDD4;        /* borders */
+  --abr-title-sub: #D8F3DC;   /* subtitle on title slides */
+
+  /* Fonts. Use fonts installed on the presenting computer, or add @font-face rules. */
+  --abr-font: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --abr-heading-weight: 700;
+  --abr-heading-stretch: 100%;
+
+  /* Your logo. Paths are relative to asbuiltreport.md */
+  --abr-event-logo: url('assets/images/event-logo-example.svg');
+  --abr-event-logo-title: url('assets/images/event-logo-example-reversed.svg');
+  --abr-event-logo-height: 44px;
+}
